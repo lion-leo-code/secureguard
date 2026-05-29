@@ -13,15 +13,15 @@ import socket
 import re
 
 # --- NGROK STATIC CONFIG ---
-NGROK_AUTH_TOKEN = "cr_38nYq0OZnDLttCLs4eOArH1eQP8"  # Get from dashboard.ngrok.com
-STATIC_DOMAIN = "phenomenologically-unbemoaned-kimberley.ngrok-free.dev" # Your static domain
+NGROK_AUTH_TOKEN = ""  # Get from dashboard.ngrok.com
+STATIC_DOMAIN = "" # Your static domain
 
 # --- SILENCE TERMINAL ---
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR) 
 
 # --- PATH CONFIGURATION ---
-site_packages = r"C:\Users\aniak\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\python311\site-packages"
+site_packages = r"" #local package location
 if site_packages not in sys.path:
     sys.path.append(site_packages)
 
@@ -41,7 +41,7 @@ SYSTEM_LOCKED = False
 BLACKLIST_ENABLED = False   
 logs = [] 
 NTFY_TOPIC = "secureguard_alerts" 
-BLACKLIST = ["chat.google.com", "chat - google chrome", "whatsapp"]
+BLACKLIST = ["Gemini", "ChatGPT", "Whatsapp"]
 
 # --- STEALTH NGROK STARTUP ---
 def start_ngrok():
