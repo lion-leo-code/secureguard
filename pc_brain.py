@@ -35,7 +35,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True, allow_headers=["Content-Type", "ngrok-skip-browser-warning"])
 
 # --- CONFIGURATION ---
-UNLOCK_CODE = "0981" 
+UNLOCK_CODE = "0000" 
 MONITOR_ON = False
 SYSTEM_LOCKED = False      
 BLACKLIST_ENABLED = False   
