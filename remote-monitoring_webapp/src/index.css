@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 65% 2%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 55% 4%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 55% 4%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 45 78% 52%;
+    --primary-foreground: 222 65% 2%;
+
+    --secondary: 217 33% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 8%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 45 78% 52%;
+    --accent-foreground: 222 65% 2%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 76% 46%;
+    --success-foreground: 222 65% 2%;
+
+    --border: 45 50% 25%;
+    --input: 217 33% 12%;
+    --ring: 45 78% 52%;
+
+    --radius: 0.75rem;
+
+    /* Custom security app tokens */
+    --glow-primary: 0 0 20px hsl(45 78% 52% / 0.3);
+    --glow-danger: 0 0 20px hsl(0 84% 60% / 0.4);
+    --glow-success: 0 0 20px hsl(142 76% 46% / 0.3);
+    --surface-elevated: 222 55% 6%;
+    --status-active: 142 76% 46%;
+    --status-inactive: 215 20% 45%;
+    --status-danger: 0 84% 60%;
+    --status-offline: 0 84% 50%;
+    
+    /* Log colors */
+    --log-alert: 0 84% 60%;
+    --log-app: 210 40% 98%;
+    --log-access: 142 76% 46%;
+    --log-system: 45 78% 52%;
+    --log-power: 280 65% 60%;
+    
+    /* Connected status color (emerald) */
+    --status-connected: 142 71% 45%;
+  }
+
+  .dark {
+    --background: 222 65% 2%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #020617;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .card-elevated {
+    @apply bg-[hsl(var(--surface-elevated))] border border-border rounded-xl;
+    border-color: hsl(45 50% 25% / 0.5);
+  }
+
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-danger {
+    box-shadow: var(--glow-danger);
+  }
+
+  .glow-success {
+    box-shadow: var(--glow-success);
+  }
+
+  .status-indicator {
+    @apply w-2 h-2 rounded-full animate-pulse;
+  }
+
+  .status-indicator-active {
+    @apply bg-[hsl(var(--status-active))];
+  }
+
+  .status-indicator-inactive {
+    @apply bg-[hsl(var(--status-inactive))];
+  }
+
+  .status-indicator-offline {
+    @apply bg-[hsl(var(--status-offline))];
+  }
+
+  /* Log entry colors - font colors only */
+  .log-alert {
+    color: hsl(var(--log-alert));
+  }
+  
+  .log-app {
+    color: hsl(var(--log-app));
+  }
+  
+  /* ACCESS GRANTED - Green */
+  .log-access-granted {
+    color: hsl(var(--log-access));
+  }
+  
+  /* ACCESS DENIED - Red */
+  .log-access-denied {
+    color: hsl(var(--log-alert));
+  }
+  
+  .log-system {
+    color: hsl(var(--log-system));
+  }
+  
+  .log-power {
+    color: hsl(var(--log-power));
+  }
+  
+  /* Security log - Blue text only, no background highlight */
+  .log-security {
+    color: hsl(200 90% 70%);
+    font-weight: 600;
+  }
+  
+  .text-connected {
+    color: hsl(var(--status-connected));
+  }
+  
+  /* Overflow wrap utility for breaking long words */
+  .overflow-wrap-anywhere {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(45_90%_65%)] bg-clip-text text-transparent;
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+  }
+  
+  .animate-shake {
+    animation: shake 0.4s ease-in-out;
+  }
+}
