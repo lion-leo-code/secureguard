@@ -8,6 +8,6 @@ start "" "C:\Users\Public\AppData\Local\Microsoft\WindowsApps\pythonw.exe" pc_br
 ping 127.0.0.1 -n 4 > nul
 
 :: Start Ngrok completely hidden
-start "" /b ngrok http ::NGROK_AUTH_TOKEN 5000
+start "" /b ngrok http NGROK_AUTH_TOKEN 5000
 
 exit
